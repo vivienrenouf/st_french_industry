@@ -1,13 +1,13 @@
 import streamlit as st
 
 
-col1, col2 = st.columns(2)
+col1= st.columns(1)
 
-with col1:
+with st.sidebar:
     chomage = st.slider('Ajustez le taux de chômage', 0, 100, 50)
     ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 50)
 
-with col2:
+with col1:
     st.title("""Indicateur de pauvreté""")
     st.image('pauvrete.jpeg')
     st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.
