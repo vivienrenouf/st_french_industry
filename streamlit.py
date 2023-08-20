@@ -2,7 +2,7 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 
-
+#test
 
 with st.sidebar:
     st.selectbox('Sélectionnez une commune', ('Rouen', 'Mont-Saint_Aignan', 'Petit-Quevilly'))
