@@ -6,5 +6,5 @@ st.write("""La variable TP6020 est une variable publiée par l’INSEE correspon
 """)
 
 
-chomage = st.slider('Ajustez le taux de chômage', 0, 100, 25)
+chomage = st.slider('Ajustez le taux de chômage', 0, 100, 50)
 st.write('Le taux de chômage est de', chomage)
