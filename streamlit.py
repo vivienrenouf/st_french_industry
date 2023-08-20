@@ -3,9 +3,10 @@ import streamlit as st
 
 
 with st.sidebar:
-    chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
-    ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
-    tx_INACTIFS = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
+    st.selectbox('Sélectionnez une commune', ('Rouen', 'Mont-Saint_Aignan', 'Petit-Quevilly'))
+    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
+    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
+    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
     tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
 
 
