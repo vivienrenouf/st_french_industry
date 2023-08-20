@@ -3,8 +3,10 @@ import streamlit as st
 
 
 with st.sidebar:
-    chomage = st.slider('Ajustez le taux de chômage', 0, 100, 50)
-    ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 50)
+    chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
+    ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
+    tx_INACTIFS = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
+    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
 
 
 st.title("""Indicateur de pauvreté""")
