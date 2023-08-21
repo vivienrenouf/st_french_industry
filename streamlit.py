@@ -33,6 +33,19 @@ for _, r in df.iterrows():
     folium.Popup(r["LIBGEO"]).add_to(geo_j)
     geo_j.add_to(m)
 
+folium.Choropleth(
+    geo_data=geo_j,
+    name="choropleth",
+    data=lille,
+    columns=["LIBGEO", "TP6020"],
+    key_on="feature.id",
+    fill_color="YlGn",
+    fill_opacity=0.7,
+    line_opacity=.1,
+    legend_name="Taux de pauvreté (%)",
+).add_to(m)    
+
+
 tx_pauvrete = lille['TP6020']
 
 # call to render Folium map in Streamlit
