@@ -31,6 +31,6 @@ for _, r in df.iterrows():
     geo_j.add_to(m)
 
 # call to render Folium map in Streamlit
-st_data = st_folium(m, width=1200)
+st_data = st_folium(m, width=1400)
 
 
