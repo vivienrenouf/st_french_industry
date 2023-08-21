@@ -26,13 +26,14 @@ df = geopandas.read_file('lille_folium.shp')
 
 m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
+"""
 for _, r in df.iterrows():
     sim_geo = geopandas.GeoSeries(r["geometry"]).simplify(tolerance=0.001)
     geo_j= sim_geo.to_json()
     #geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "orange"})
     folium.Popup(r["LIBGEO"]).add_to(geo_j)
     geo_j.add_to(m)
-
+"""
 
 folium.Choropleth(
     geo_data=geopandas.GeoSeries(df["geometry"].simplify(tolerance=0.001)).to_json(),
