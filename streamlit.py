@@ -51,6 +51,7 @@ folium.Choropleth(
 
 #folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
 # call to render Folium map in Streamlit
+
 st_data = st_folium(m, width=1400)
 
 
