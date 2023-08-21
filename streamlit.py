@@ -43,7 +43,7 @@ folium.Choropleth(
     data=lille,
     columns=["LIBGEO", "TP6020"],
     key_on="feature.properties.LIBGEO",
-    fill_color="YlGn",
+    fill_color="OrRd",
     fill_opacity=0.7,
     line_opacity=.1,
     legend_name="Taux de pauvreté (%)",
