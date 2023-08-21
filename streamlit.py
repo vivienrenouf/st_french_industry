@@ -49,7 +49,7 @@ folium.Choropleth(
     legend_name="Taux de pauvreté (%)",
 ).add_to(m)
 
-folium.features.GeoJsonPopup(fields=['TP6020'], labels=True)
+folium.features.GeoJsonPopup(fields=['TP6020'], labels=True).add_to(m)
 
 #folium.LayerControl().add_to(m)
 
