@@ -35,7 +35,7 @@ for _, r in df.iterrows():
 
 
 folium.Choropleth(
-    geo_data=geopandas.GeoSeries(df["geometry"].simplify(tolerance=0.001).to_json(),
+    geo_data=geopandas.GeoSeries(df["geometry"].simplify(tolerance=0.001)).to_json(),
     name="choropleth",
     data=lille,
     columns=["LIBGEO", "TP6020"],
@@ -43,11 +43,9 @@ folium.Choropleth(
     fill_color="YlGn",
     fill_opacity=0.7,
     line_opacity=.1,
-    legend_name="Taux de pauvreté (%)",
+    legend_name="Taux de pauvreté (%)"
 ).add_to(m)    
 
-
-tx_pauvrete = lille['TP6020']
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=1400)
