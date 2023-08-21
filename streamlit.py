@@ -6,9 +6,12 @@ import geopandas
 
 st.set_page_config(layout="wide")
 
+lille = pd.read_csv('lille_folium.csv')
+communes = lille['LIBGEO']
+
 with st.sidebar:
     st.sidebar.title("Paramètres")
-    st.selectbox('Sélectionnez une commune', ('Rouen', 'Mont-Saint_Aignan', 'Petit-Quevilly'))
+    st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
