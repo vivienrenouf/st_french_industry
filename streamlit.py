@@ -7,7 +7,7 @@ import geopandas
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.title("Paramètres")
+    st.sidebar.title("Paramètres")
     st.selectbox('Sélectionnez une commune', ('Rouen', 'Mont-Saint_Aignan', 'Petit-Quevilly'))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
