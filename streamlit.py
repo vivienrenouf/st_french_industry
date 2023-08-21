@@ -7,7 +7,7 @@ import geopandas
 st.set_page_config(layout="wide")
 
 lille = pd.read_csv('lille_folium.csv')
-communes = lille['LIBGEO']
+communes = lille['LIBGEO'].sort_values()
 
 with st.sidebar:
     st.sidebar.title("Paramètres")
@@ -18,7 +18,7 @@ with st.sidebar:
     tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
 
 
-st.title("""Aire d'attraction de Lille : Indicateur de pauvreté""")
+st.title("""Aire d'attraction de Lille : indicateur de pauvreté""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
@@ -32,6 +32,8 @@ for _, r in df.iterrows():
     geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "orange"})
     folium.Popup(r["LIBGEO"]).add_to(geo_j)
     geo_j.add_to(m)
+
+tx_pauvrete = lille['TP6020']
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=1400)
