@@ -37,7 +37,7 @@ for _, r in df.iterrows():
 """
   
 folium.Choropleth(
-    geo_data=geo_data_lille ,
+    geo_data='geo_data_lille' ,
     name="choropleth",
     data=lille,
     columns=["LIBGEO", "TP6020"],
