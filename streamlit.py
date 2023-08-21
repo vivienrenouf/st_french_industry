@@ -35,7 +35,7 @@ for _, r in df.iterrows():
 
 
 folium.Choropleth(
-    geo_data=geopandas.GeoSeries(df["geometry"].simplify(tolerance=0.001).to_json()
+    geo_data=geopandas.GeoSeries(df["geometry"].simplify(tolerance=0.001).to_json(),
     name="choropleth",
     data=lille,
     columns=["LIBGEO", "TP6020"],
