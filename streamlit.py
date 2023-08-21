@@ -21,12 +21,9 @@ st.title("""Indicateur de pauvreté""")
 
 df = geopandas.read_file('lille_folium.shp')
 
-# center on Liberty Bell, add marker
 m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 for _, r in df.iterrows():
-    # Without simplifying the representation of each borough,
-    # the map might not be displayed
     sim_geo = geopandas.GeoSeries(r["geometry"]).simplify(tolerance=0.001)
     geo_j = sim_geo.to_json()
     geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "orange"})
@@ -34,6 +31,6 @@ for _, r in df.iterrows():
     geo_j.add_to(m)
 
 # call to render Folium map in Streamlit
-st_data = st_folium(m, width=725)
+st_data = st_folium(m, width=1200)
 
 
