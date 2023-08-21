@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 import geopandas
 
-
+st.set_page_config(layout="wide")
 
 with st.sidebar:
     st.selectbox('Sélectionnez une commune', ('Rouen', 'Mont-Saint_Aignan', 'Petit-Quevilly'))
