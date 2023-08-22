@@ -24,7 +24,8 @@ st.title("""Aire d'attraction de Lille : indicateur de pauvreté""")
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
 geo_data_lille = json.load(open('lille_folium.geojson'))
-
+geo_data_lille2 = geopandas.read_file('lille_folium.shp')
+geo_data_lille2 = geo_data_lille2.to_json()
 
 m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
@@ -38,11 +39,11 @@ for _, r in df.iterrows():
 """
   
 folium.Choropleth(
-    geo_data=geo_data_lille ,
+    geo_data=geo_data_lille2 ,
     name="choropleth",
     data=lille,
     columns=["LIBGEO", "TP6020"],
-    key_on="feature.properties.LIBGEO",
+    key_on="feature.LIBGEO",
     fill_color="OrRd",
     nan_fill_color="white",
     fill_opacity=0.7,
