@@ -52,8 +52,17 @@ folium.Choropleth(
     style_function=lambda x: {"fillColor": "orange"}
 ).add_to(m)
 
+popup = GeoJsonPopup(
+    fields=["LIBGEO", "TP6020"],
+    aliases=["Commune", "% pauvreté"],
+    localize=True,
+    labels=True,
+    style="background-color: yellow;",
+)
+
+folium.GeoJson(popup=popup).add_to(m)
 #folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
-folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
+#folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
 #folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
 # call to render Folium map in Streamlit
 
