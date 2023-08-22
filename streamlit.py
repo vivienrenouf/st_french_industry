@@ -45,8 +45,8 @@ folium.Choropleth(
     key_on="feature.properties.LIBGEO",
     fill_color="OrRd",
     nan_fill_color="white",
-    fill_opacity=0.9,
-    line_opacity=.1,
+    fill_opacity=1,
+    line_opacity=.8,
     legend_name="Taux de pauvreté (%)",
     style_function=lambda x: {"fillColor": "orange"}
 ).add_to(m)
