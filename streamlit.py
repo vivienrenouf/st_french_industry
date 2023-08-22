@@ -24,10 +24,10 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
-tab1, tab2 = st.tabs(['Taux réél', 'Prédiction'])
+tab1, tab2 = st.tabs(['Taux INSEE', 'Prédictions'])
 
 with tab1:
-    st.header('Taux réél')
+    st.header('Taux INSEE')
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 
