@@ -50,3 +50,4 @@ with tab1:
     st_data = st_folium(m, width=1400)
 
 with tab2:
+    st.header('')
