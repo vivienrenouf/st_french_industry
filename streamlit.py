@@ -48,6 +48,12 @@ folium.Choropleth(
     fill_opacity=0.7,
     line_opacity=.1,
     legend_name="Taux de pauvreté (%)",
+    style_function=lambda feature: {
+        "fillColor": "#ffff00",
+        "color": "black",
+        "weight": 2,
+        "dashArray": "5, 5",
+    },
 ).add_to(m)
 
 #folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
