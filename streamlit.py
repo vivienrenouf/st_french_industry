@@ -37,15 +37,7 @@ for _, r in df.iterrows():
     geo_j.add_to(m)
 """
 
-popup = folium.GeoJsonPopup(
-    fields=["LIBGEO", "TP6020"],
-    aliases=["Commune : ", "% pauvreté : "],
-    localize=True,
-    labels=True,
-    style="background-color: yellow;",
-)
 
-folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
 folium.Choropleth(
     geo_data=geo_data_lille ,
@@ -62,6 +54,15 @@ folium.Choropleth(
     style_function=lambda x: {"fillColor": "orange"}
 ).add_to(m)
 
+popup = folium.GeoJsonPopup(
+    fields=["LIBGEO", "TP6020"],
+    aliases=["Commune : ", "% pauvreté : "],
+    localize=True,
+    labels=True,
+    style="background-color: yellow;",
+)
+
+folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
 #folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
 #folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
