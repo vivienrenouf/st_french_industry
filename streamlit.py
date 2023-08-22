@@ -44,7 +44,7 @@ choropleth = folium.Choropleth(
     popup=folium.GeoJsonPopup(fields=['LIBGEO'])
 ).add_to(m)
 
-choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO'])))
+choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO']))
 
 #folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
