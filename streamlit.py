@@ -28,16 +28,6 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 
 m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
-"""
-for _, r in df.iterrows():
-    sim_geo = geopandas.GeoSeries(r["geometry"]).simplify(tolerance=0.001)
-    geo_j= sim_geo.to_json()
-    geo_j = folium.GeoJson(data=geo_j, style_function=lambda x: {"fillColor": "orange"})
-    folium.Popup(r["LIBGEO"]).add_to(geo_j)
-    geo_j.add_to(m)
-"""
-
-
 
 folium.Choropleth(
     geo_data=geo_data_lille ,
@@ -54,7 +44,7 @@ folium.Choropleth(
     style_function=lambda x: {"fillColor": "orange"}
 ).add_to(m)
 
-folium.properties.GeoJsonPopup(
+folium.GeoJsonPopup(
     fields=["LIBGEO", "TP6020"],
     aliases=["Commune : ", "% pauvreté :  "],
     localize=True,
