@@ -27,7 +27,7 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 tab1, tab2 = st.tabs(['Taux réél', 'Prédiction'])
 
 with tab1:
-    st.subheader('Taux réél')
+    st.header('Taux réél')
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 
@@ -51,4 +51,4 @@ with tab1:
     st_data = st_folium(m, width=1400)
 
 with tab2:
-    st.subheader('Prédictions')
+    st.header('Prédictions')
