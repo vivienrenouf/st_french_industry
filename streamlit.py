@@ -44,14 +44,7 @@ choropleth = folium.Choropleth(
     popup=folium.GeoJsonPopup(fields=['LIBGEO'])
 ).add_to(m)
 
-choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=True, aliases=['Commune : ', 'Tx pauvreté : ']))
-
-#folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
-
-#folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
-#folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
-#folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
-# call to render Folium map in Streamlit
+choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=True, aliases=['Commune : ', 'Taux : ']))
 
 st_data = st_folium(m, width=1400)
 
