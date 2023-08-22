@@ -41,13 +41,13 @@ folium.Choropleth(
     line_opacity=.5,
     line_color="#5BA69E",
     legend_name="Taux de pauvreté (%)",
-    style_function=lambda x: {"fillColor": "orange"}
+    popup=folium.GeoJsonPopup(fields=['LIBGEO'])
 ).add_to(m)
 
 
 #folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
-folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
+#folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
 #folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
 #folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
 # call to render Folium map in Streamlit
