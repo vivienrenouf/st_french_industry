@@ -44,7 +44,7 @@ choropleth = folium.Choropleth(
     popup=folium.GeoJsonPopup(fields=['LIBGEO'])
 ).add_to(m)
 
-choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=True, aliases=['Commune : ', 'Taux : ']))
+choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False))
 
 st_data = st_folium(m, width=1400)
 
