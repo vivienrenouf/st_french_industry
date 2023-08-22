@@ -60,7 +60,7 @@ popup = folium.GeoJsonPopup(
     style="background-color: yellow;",
 )
 
-folium.GeoJson(popup=popup).add_to(m)
+folium.GeoJson(data=geo_data_lille, popup=popup).add_to(m)
 #folium.GeoJson(geo_data_lille, popup=folium.GeoJsonPopup(fields=['LIBGEO'])).add_to(m)
 #folium.GeoJsonPopup(fields=["LIBGEO"]).add_to(m)
 #folium.features.GeoJsonPopup(fields=["properties"]).add_to(m)
