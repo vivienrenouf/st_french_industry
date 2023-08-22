@@ -54,10 +54,11 @@ folium.Choropleth(
 
 popup = folium.GeoJsonPopup(
     fields=["LIBGEO", "TP6020"],
-    aliases=["Commune", "% pauvreté"],
+    aliases=["Commune : ", "% pauvreté : "],
     localize=True,
     labels=True,
     style="background-color: yellow;",
+    overlay=False,
 )
 
 folium.GeoJson(data=geo_data_lille, popup=popup).add_to(m)
