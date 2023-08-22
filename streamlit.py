@@ -9,6 +9,7 @@ st.set_page_config(layout="wide")
 
 lille = pd.read_csv('lille_folium.csv')
 communes = lille['LIBGEO'].sort_values()
+geo_data_lille = json.load(open('lille_folium.geojson'))
 
 with st.sidebar:
     st.sidebar.title("Paramètres")
@@ -23,29 +24,31 @@ st.title("""Prédiction du taux de pauvreté de l'aire d'attraction de Lille""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
-geo_data_lille = json.load(open('lille_folium.geojson'))
+tab1, tab2 = st.tabs(['Taux réél', 'Prédiction'])
+
+with tab1:
+    st.subheader('Taux réél')
+    m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 
-m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
+    choropleth = folium.Choropleth(
+        geo_data=geo_data_lille ,
+        name="choropleth",
+        data=lille,
+        columns=["LIBGEO", "TP6020"],
+        key_on="feature.properties.LIBGEO",
+        fill_color="OrRd",
+        nan_fill_color="white",
+        fill_opacity=1,
+        line_opacity=.5,
+        line_color="#5BA69E",
+        legend_name="Taux de pauvreté (%)",
+        popup=folium.GeoJsonPopup(fields=['LIBGEO'])
+    ).add_to(m)
 
+    choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
 
-choropleth = folium.Choropleth(
-    geo_data=geo_data_lille ,
-    name="choropleth",
-    data=lille,
-    columns=["LIBGEO", "TP6020"],
-    key_on="feature.properties.LIBGEO",
-    fill_color="OrRd",
-    nan_fill_color="white",
-    fill_opacity=1,
-    line_opacity=.5,
-    line_color="#5BA69E",
-    legend_name="Taux de pauvreté (%)",
-    popup=folium.GeoJsonPopup(fields=['LIBGEO'])
-).add_to(m)
+    st_data = st_folium(m, width=1400)
 
-choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
-
-st_data = st_folium(m, width=1400)
-
-
+with tab2:
+    st.subheader('Prédictions')
