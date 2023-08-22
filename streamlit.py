@@ -54,9 +54,9 @@ folium.Choropleth(
     style_function=lambda x: {"fillColor": "orange"}
 ).add_to(m)
 
-folium.GeoJsonPopup(data=geo_data_lille,
+folium.GeoJsonPopup(
     fields=["LIBGEO", "TP6020"],
-    aliases=["Commune : ", "% pauvreté : "],
+    aliases=["Commune : ", "% pauvreté :  "],
     localize=True,
     labels=True,
     style="background-color: yellow;",
