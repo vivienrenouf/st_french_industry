@@ -29,7 +29,7 @@ tab1, tab2 = st.tabs(['y_true', 'y_predict'])
 css = '''
 <style>
     .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
-    font-size:2rem;
+    font-size:5rem;
     }
 </style>
 '''
