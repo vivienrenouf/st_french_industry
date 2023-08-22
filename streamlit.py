@@ -45,7 +45,7 @@ popup = folium.GeoJsonPopup(
     style="background-color: yellow;",
 )
 
-folium.GeoJson(data=geo_data_lille, popup=popup, overlay=True).add_to(m)
+folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
 folium.Choropleth(
     geo_data=geo_data_lille ,
