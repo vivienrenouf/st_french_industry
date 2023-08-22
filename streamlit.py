@@ -29,7 +29,7 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 
-folium.Choropleth(
+choropleth = folium.Choropleth(
     geo_data=geo_data_lille ,
     name="choropleth",
     data=lille,
