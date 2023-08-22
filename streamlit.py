@@ -50,7 +50,7 @@ folium.GeoJsonPopup(
     localize=True,
     labels=True,
     style="background-color: yellow;",
-)
+).add_to(m)
 
 #folium.GeoJson(data=geo_data_lille, popup=popup, overlay=False).add_to(m)
 
