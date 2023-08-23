@@ -49,6 +49,6 @@ with tab1:
 
     st_data = st_folium(m, width=1400)
 
-    st_write('Commune sélectionnée', select_commune)
+    st.write('Commune sélectionnée', select_commune)
 with tab2:
     st.header('')
