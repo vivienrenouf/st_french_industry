@@ -8,7 +8,7 @@ import json
 st.set_page_config(layout="wide")
 
 lille = pd.read_csv('lille_folium.csv')
-communes = lille['LIBGEO'].sort_values()
+communes = lille.sort_values(by='TP6020', ascending=False)[['LIBGEO']]
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
 with st.sidebar:
