@@ -13,6 +13,7 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 
 with st.sidebar:
     st.sidebar.title("Paramètres")
+    st.info('This is a purely informational message', icon="ℹ️")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
