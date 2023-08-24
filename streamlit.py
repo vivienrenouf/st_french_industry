@@ -59,3 +59,22 @@ with tab1:
 
 with tab2:
     st.header('')
+
+css='''
+[data-testid="metric-container"] {
+    width: fit-content;
+    margin: auto;
+}
+
+[data-testid="metric-container"] > div {
+    width: fit-content;
+    margin: auto;
+}
+
+[data-testid="metric-container"] label {
+    width: fit-content;
+    margin: auto;
+}
+'''
+
+st.markdown(f'<style>{css}</style>',unsafe_allow_html=True)
