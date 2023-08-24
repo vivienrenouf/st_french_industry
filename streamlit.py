@@ -48,6 +48,13 @@ with tab1:
 
     choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
 
+    for i in geo_data_lille['features']:
+        if i['properties']['LIBGEO'] == select_commune:
+            commune = i
+
+    folium.GeoJson(commune, name=select_commune).add_to(m)
+    folium.LayerControl().add_to(m)
+    
     st_data = st_folium(m, width=1400)
 
 with tab2:
