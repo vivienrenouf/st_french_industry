@@ -15,7 +15,7 @@ with st.sidebar:
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020']
     delta_moyenne = tx_pauvrete_commune - 14.6
-    st.metric(label='Taux de pauvreté', value=tx_pauvrete_commune, delta= delta_moyenne - 14.6, delta_color="inverse") #value='{} %'.format(tx_pauvrete_commune))
+    st.metric(label='Taux de pauvreté', value=tx_pauvrete_commune, delta_color="inverse") #value='{} %'.format(tx_pauvrete_commune))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
