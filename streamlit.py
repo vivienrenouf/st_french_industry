@@ -14,7 +14,7 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 with st.sidebar:
     st.sidebar.title("Paramètres")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
-    st.metric(label='Taux de pauvreté', value=lille[lille['LIBGEO'] == select_commune]['TP6020'])
+    st.metric(label='Taux de pauvreté', value='{} %'.format(lille[lille['LIBGEO'] == select_commune]['TP6020']))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
@@ -60,6 +60,7 @@ with tab1:
 with tab2:
     st.header('')
 
+#Le code CSS ci-dessous centre les st.metric
 css='''
 [data-testid="metric-container"] {
     width: fit-content;
