@@ -15,6 +15,20 @@ with st.sidebar:
     st.sidebar.title("Paramètres")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
     st.metric(label='Taux de pauvreté', value=lille[lille['LIBGEO'] == select_commune]['TP6020'])
+    st.markdown('''
+    <style>
+    /*center metric label*/
+    [data-testid="stMetricLabel"] > div:nth-child(1) {
+        justify-content: center;
+    }
+
+    /*center metric value*/
+    [data-testid="stMetricValue"] > div:nth-child(1) {
+        justify-content: center;
+    }
+    </style>
+    ''', 
+    unsafe_allow_html=True)
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
