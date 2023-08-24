@@ -14,7 +14,7 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 with st.sidebar:
     st.sidebar.title("Paramètres")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
-    st.info('Les communes du menu sont classées par taux de pauvreté, du plus grand au plus petit.', icon="ℹ️")
+    st.metric(label='Taux de pauvreté', lille[lille['LIBGEO'] == select_commune]['TP6020'])
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
@@ -54,7 +54,7 @@ with tab1:
 
     folium.GeoJson(commune, name=select_commune).add_to(m)
     folium.LayerControl().add_to(m)
-    
+
     st_data = st_folium(m, width=1400)
 
 with tab2:
