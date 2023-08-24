@@ -13,10 +13,10 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 with st.sidebar:
     st.sidebar.title("Paramètres")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
-    st.write("Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian en France. Le taux de pauvreté de la France est de 14,6% ")
+    st.write("Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian en France. Pour l'ensemble de la France, ce taux est de 14,6% ")
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
     delta_moyenne = tx_pauvrete_commune - 14.6
-    st.metric(label='Taux de pauvreté', value=tx_pauvrete_commune, delta=delta_moyenne, delta_color="inverse") #value='{} %'.format(tx_pauvrete_commune))
+    st.metric(label='Taux de pauvreté '+ select_commune, value=tx_pauvrete_commune, delta=delta_moyenne, delta_color="inverse") #value='{} %'.format(tx_pauvrete_commune))
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
     tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
