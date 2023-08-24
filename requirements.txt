@@ -1,4 +1,5 @@
 pandas
 geopandas
 streamlit-folium
+folium
 json
