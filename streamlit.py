@@ -19,7 +19,7 @@ with st.sidebar:
     st.metric(label='Taux de pauvreté monétaire de '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse") #value='{} %'.format(tx_pauvrete_commune))
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
-    cet outil effectue des prédictions du taux de pauvreté monétaire à partir de données non monétaires. Ces prédictions ont pour but d'aider les collectivités 
+    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. Ces prédictions ont pour but d'aider les collectivités 
     à trouver les leviers nécessaires pour agir contre les inégalités.""")
     tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, 20)
     tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
