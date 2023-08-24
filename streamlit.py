@@ -11,7 +11,7 @@ communes = lille.sort_values(by='TP6020', ascending=False)[['LIBGEO']]
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
 with st.sidebar:
-    st.sidebar.title("Paramètres")
+    st.sidebar.title("Instructions")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
     
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
