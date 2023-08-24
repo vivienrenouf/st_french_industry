@@ -1,4 +1,4 @@
-streamlit-folium
 pandas
 geopandas
+streamlit-folium
 json
