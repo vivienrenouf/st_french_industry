@@ -19,7 +19,7 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 
 with st.sidebar:
     st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes),  index=2)
 
     #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
