@@ -38,7 +38,7 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
-tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
+
 
 with st.container():
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -46,6 +46,8 @@ with st.container():
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
         st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_chomage_commune))
+
+tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
 #Premier onglet
 with tab1:
