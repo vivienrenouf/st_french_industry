@@ -129,3 +129,5 @@ make_map_responsive= """
  </style>
 """
 st.markdown(make_map_responsive, unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
