@@ -12,14 +12,14 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 
 
 
-st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
+
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
 
 with st.sidebar:
     st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes),  index=2)
+    select_commune = st.selectbox("Sélectionnez une commune de l'aire d'attraction de Lille", (communes),  index=2)
 
     #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
@@ -55,7 +55,7 @@ with st.sidebar:
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
 
-
+st.title("Analyse de la pauvreté de " + select_commune)
 
 tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
