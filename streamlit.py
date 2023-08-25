@@ -40,9 +40,9 @@ with st.sidebar:
     En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
     les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
     tx_chomage = st.slider('Ajustez le taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
-    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune)
-    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0.0, 100.0, tx_inactifs_commune)
-    tx_location = st.slider('Ajustez le taux de locataires', 0.0, 100.0, tx_location_commune)
+    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
+    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
+    tx_location = st.slider('Ajustez le taux de locataires', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
 
 
