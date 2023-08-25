@@ -31,6 +31,10 @@ with st.sidebar:
 
     tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
 
+    tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
+
+    tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
+
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
     cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
@@ -54,7 +58,11 @@ with tab1:
     with col2:
         st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_chomage_commune))
     with col3:
-        st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_ss_diplome_commune))
+        st.metric(label='Taux de non diplômés à '+ select_commune, value='{} %'.format(tx_ss_diplome_commune))
+    with col4:
+        st.metric(label="Taux d'inactifs à" + select_commune, value='{} %'.format(tx_inactifs_commune))
+    with col5:
+        st.metric(label="Taux de locataires (hab. princ.) à" + select_commune, value='{} %'.format(tx_location_commune))
 
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
