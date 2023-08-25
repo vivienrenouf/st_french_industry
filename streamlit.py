@@ -52,7 +52,7 @@ tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 with tab1:
 
     with st.container():
-        st.markdown("<h1 style='text-align: center'>select_commune title</h1>", unsafe_allow_html=True)
+        st.header(select_commune)
         col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
@@ -104,7 +104,7 @@ with tab2:
 
 
 #Le code CSS ci-dessous centre les st.metric
-css='''
+css_metrics='''
 [data-testid="metric-container"] {
     width: fit-content;
     margin: auto;
@@ -121,7 +121,17 @@ css='''
 }
 '''
 
-st.markdown(f'<style>{css}</style>',unsafe_allow_html=True)
+st.markdown(f'<style>{css_metrics}</style>',unsafe_allow_html=True)
+
+css_header = '''
+[data-testid="StyledLinkIconContainer"] {
+    width: fit-content;
+    margin: auto;
+}
+
+'''
+
+st.markdown(f'<style>{css_header}</style>',unsafe_allow_html=True)
 
 make_map_responsive= """
  <style>
