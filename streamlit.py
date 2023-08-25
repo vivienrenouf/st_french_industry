@@ -26,7 +26,7 @@ tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 with tab1:
 
     with st.container():
-        st.header(select_commune)
+        #st.header(select_commune)
         select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
         col1, col2, col3, col4, col5 = st.columns(5)
 
