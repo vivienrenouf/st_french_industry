@@ -26,6 +26,8 @@ with st.sidebar:
     tx_pauvrete_france = 14.6
     delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
 
+    #population = 
+
     tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
 
     tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
