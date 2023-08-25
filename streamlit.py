@@ -99,7 +99,7 @@ with tab1:
         if i['properties']['LIBGEO'] == select_commune:
             commune = i
 
-    folium.GeoJson(commune, name=select_commune).add_to(m)
+    folium.GeoJson(commune, name=select_commune, fill_opacity=.0).add_to(m)
     folium.LayerControl().add_to(m)
     st_data = st_folium(m, width='100%')
 
