@@ -16,15 +16,17 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
-tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
-tx_pauvrete_france = 14.6
-delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
 
-tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
 
 with st.sidebar:
     st.sidebar.title("Instructions")
     select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+
+    tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
+    tx_pauvrete_france = 14.6
+    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
+
+    tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
 
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
