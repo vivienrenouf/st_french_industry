@@ -44,7 +44,7 @@ with st.sidebar:
         st.metric(label='Population', value='{:,}'.format(population_commune))
 
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
-    En France, ce taux est de 14,6%. Il s'agit d'un **indicateur purement monétaire**, que l'INSEE publie également au niveau communal. \n\n Afin de 
+    En France, ce taux est de 14,6%. Il s'agit d'un **indicateur purement monétaire**, que l'INSEE publie également au niveau communal*. \n\n Afin de 
     lutter contre la pauvreté, prédire le taux de pauvreté monétaire **à partir de données non monétaires**, axées sur l'emploi, la formation et 
     le logement, peut aider les agglomérations à cibler les politiques à mener. \n\n En simulant des variations sur les axes proposés, quel 
     pourrait être l'impact sur le taux de pauvreté de la commune sélectionnée ? \n\n Ajustez les jauges et observez le résultat dans l'onglet **Prédiction** !
@@ -54,6 +54,9 @@ with st.sidebar:
     tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
+    st.write("""* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
+             Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
+             Les autres communes ne sont pas sélectionnables et sont représentées en blanc sur les cartographies""")
 
 st.title("Analyse de la pauvreté de " + select_commune)
 
