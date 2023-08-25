@@ -46,7 +46,7 @@ with st.sidebar:
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire, que l'INSEE publie également au niveau communal. \n\n 
     Afin de lutter contre la pauvreté, prédire le taux de pauvreté monétaire **à partir de données non monétaires**, 
-    axées sur l'emploi, la formation et le logement, peut aider les agglomérations à cibler les politiques à mener.\n\n
+    axées sur l'emploi, la formation et le logement, peut aider les agglomérations à cibler les politiques à mener. \n\n
     En simulant des variations sur les axes proposés, quel pourrait être l'impact sur le taux de pauvreté de la commune sélectionnée ?
     """)
     tx_chomage = st.slider('Ajustez le taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
