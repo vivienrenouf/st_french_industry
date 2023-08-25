@@ -34,6 +34,7 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 
 tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
+#Premier onglet
 with tab1:
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
@@ -55,6 +56,7 @@ with tab1:
 
     choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
 
+#Ce bloc permet de highlight le territoire choisi dans le menu dropdown
     for i in geo_data_lille['features']:
         if i['properties']['LIBGEO'] == select_commune:
             commune = i
@@ -64,6 +66,7 @@ with tab1:
 
     st_data = st_folium(m, width=1400)
 
+#Deuxième onglet
 with tab2:
     st.header('')
 
