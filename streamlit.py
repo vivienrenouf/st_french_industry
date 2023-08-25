@@ -17,6 +17,33 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
 
+with st.sidebar:
+    st.sidebar.title("Instructions")
+    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+
+    #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
+    tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
+    tx_pauvrete_france = 14.6
+    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
+
+    tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
+
+    tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
+
+    tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
+
+    tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
+
+    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
+    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
+    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
+    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
+    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
+    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
+    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, int(tx_ss_diplome_commune))
+    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, int(tx_inactifs_commune))
+    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, int(tx_location_commune))
+
 
 
 
@@ -73,33 +100,6 @@ with tab1:
 with tab2:
     st.header('')
 
-
-with st.sidebar:
-    st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
-
-    #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
-    tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
-    tx_pauvrete_france = 14.6
-    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
-
-    tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
-
-    tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
-
-    tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
-
-    tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
-
-    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
-    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
-    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
-    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
-    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
-    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
-    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, int(tx_ss_diplome_commune))
-    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, int(tx_inactifs_commune))
-    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, int(tx_location_commune))
 
 
 
