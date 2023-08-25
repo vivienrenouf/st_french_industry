@@ -93,7 +93,7 @@ with tab1:
         folium.GeoJson(commune, name=select_commune).add_to(m)
         folium.LayerControl().add_to(m)
         #m.to_streamlit()
-        st_data = st_folium(m, width=1400)
+        st_data = st_folium(m)
 
 #Deuxième onglet
 with tab2:
@@ -122,3 +122,10 @@ css='''
 '''
 
 st.markdown(f'<style>{css}</style>',unsafe_allow_html=True)
+
+make_map_responsive= """
+ <style>
+ [title~="st.iframe"] { width: 100%}
+ </style>
+"""
+st.markdown(make_map_responsive, unsafe_allow_html=True)
