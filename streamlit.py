@@ -40,6 +40,13 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 
 tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
+with st.container():
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
+    with col2:
+        st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_chomage_commune))
+
 #Premier onglet
 with tab1:
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
