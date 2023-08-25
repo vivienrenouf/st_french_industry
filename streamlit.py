@@ -49,10 +49,10 @@ with st.sidebar:
     le logement, peut aider les agglomérations à cibler les politiques à mener. \n\n En simulant des variations sur les axes proposés, quel 
     pourrait être l'impact sur le taux de pauvreté de la commune sélectionnée ? \n\n Ajustez les jauges et observez le résultat dans l'onglet "Prédiction" !
     """)
-    tx_chomage = st.slider('Ajustez le taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
-    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
-    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
-    tx_location = st.slider('Ajustez le taux de locataires', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
+    tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
+    tx_ss_diplome = st.slider('Taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
+    tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
+    tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
 
 
