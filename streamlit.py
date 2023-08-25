@@ -16,6 +16,26 @@ st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
 #st.image('pauvrete.jpeg')
 #st.write("""La variable TP6020 est une variable publiée par l’INSEE correspondant au taux de pauvreté en 2020. Ce taux est calculé pour les personnes logées de manière ordinaire en France métropolitaine. Il exclut donc les sans-abris et les populations occupant des habitations mobiles. Les ménages dont la personne de référence est étudiante sont aussi exclus de l’analyse. Ce taux est calculé par l’INSEE à partir de l’enquête Revenus fiscaux et sociaux (ERFS), réalisée annuellement.""")
 
+tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
+tx_pauvrete_france = 14.6
+delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
+
+tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
+
+with st.sidebar:
+    st.sidebar.title("Instructions")
+    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+
+    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
+    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
+    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
+    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
+    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
+    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
+    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
+    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
+    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
+
 
 tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
@@ -25,12 +45,8 @@ with tab1:
     with st.container():
         col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
-        tx_pauvrete_france = 14.6
-        delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
-        tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
         st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_chomage_commune))
 
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
@@ -68,19 +84,7 @@ with tab2:
     st.header('')
 
 
-with st.sidebar:
-    st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
 
-    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
-    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
-    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
-    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
-    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
-    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
-    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
-    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
-    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
 
 
 #Le code CSS ci-dessous centre les st.metric
