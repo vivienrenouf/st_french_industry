@@ -26,7 +26,7 @@ with st.sidebar:
     tx_pauvrete_france = 14.6
     delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
 
-    #population = 
+    population_commune = int(lille.loc[lille['LIBGEO'] == select_commune, 'pop_tot'].values[0])
 
     tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
 
@@ -41,7 +41,7 @@ with st.sidebar:
     with col1:
         st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
-        st.metric(label='Taux de chômage', value='{} %'.format(tx_chomage_commune))
+        st.metric(label='Population', value='{}'.format(population_commune))
 
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
