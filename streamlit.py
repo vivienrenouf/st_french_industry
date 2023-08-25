@@ -10,19 +10,6 @@ lille = pd.read_csv('lille_all_data.csv')
 communes = lille.sort_values(by='TP6020', ascending=False)[['LIBGEO']]
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
-with st.sidebar:
-    st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
-
-    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
-    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
-    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
-    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
-    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
-    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
-    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
-    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
-    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
 
 
 st.title("""Taux de pauvreté de l'aire d'attraction de Lille""")
@@ -79,6 +66,22 @@ with tab1:
 #Deuxième onglet
 with tab2:
     st.header('')
+
+
+with st.sidebar:
+    st.sidebar.title("Instructions")
+    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+
+    st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
+    En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
+    cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
+    En effectuant des simulations axées sur l'emploi, la formation et le logement, les collectivités pourront observer l'impact que pourraient avoir leurs futures politiques contre
+    les inégalités.\n\n Ajustez les taux ci-dessous et observez la prédiction du taux de pauvreté :""")
+    tx_chomage = st.slider('Ajustez le taux de chômage', 0, 100, int(tx_chomage_commune))
+    tx_ss_diplome = st.slider('Ajustez le taux de non diplômés', 0, 100, 40)
+    tx_inactifs = st.slider("Ajustez le taux d'inactifs", 0, 100, 50)
+    tx_location = st.slider('Ajustez le taux de locataires', 0, 100, 80)
+
 
 #Le code CSS ci-dessous centre les st.metric
 css='''
