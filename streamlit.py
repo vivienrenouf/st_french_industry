@@ -26,23 +26,8 @@ tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 with tab1:
 
     with st.container():
-        #st.header(select_commune)
-        select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+        st.header(select_commune)
         col1, col2, col3, col4, col5 = st.columns(5)
-
-    #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
-    tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
-    tx_pauvrete_france = 14.6
-    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
-
-    tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
-
-    tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
-
-    tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
-
-    tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
-
     with col1:
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
@@ -91,6 +76,20 @@ with tab2:
 
 with st.sidebar:
     st.sidebar.title("Instructions")
+    select_commune = st.selectbox("Sélectionnez une commune de l'agglomération", (communes))
+
+    #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
+    tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
+    tx_pauvrete_france = 14.6
+    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
+
+    tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
+
+    tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
+
+    tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
+
+    tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
 
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
