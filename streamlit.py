@@ -56,15 +56,15 @@ with tab1:
         st.subheader(select_commune)
         col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
+        st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
-        st.metric(label='Taux de chômage à '+ select_commune, value='{} %'.format(tx_chomage_commune))
+        st.metric(label='Taux de chômage', value='{} %'.format(tx_chomage_commune))
     with col3:
-        st.metric(label='Taux de non diplômés à '+ select_commune, value='{} %'.format(tx_ss_diplome_commune))
+        st.metric(label='Taux de non diplômés', value='{} %'.format(tx_ss_diplome_commune))
     with col4:
-        st.metric(label="Taux d'inactifs à" + select_commune, value='{} %'.format(tx_inactifs_commune))
+        st.metric(label="Taux d'inactifs", value='{} %'.format(tx_inactifs_commune))
     with col5:
-        st.metric(label="Taux de locataires (hab. princ.) à" + select_commune, value='{} %'.format(tx_location_commune))
+        st.metric(label="Taux de locataires (hab. princ.)", value='{} %'.format(tx_location_commune))
 
 
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
