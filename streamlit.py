@@ -34,6 +34,8 @@ with st.sidebar:
 
     tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
 
+    st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
+
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un indicateur purement monétaire. \n\n Afin d'aider les agglomérations à lutter contre la pauvreté, 
     cet outil effectue des prédictions du taux de pauvreté monétaire **à partir de données non monétaires**. 
@@ -54,16 +56,14 @@ with tab1:
 
     with st.container():
         st.subheader(select_commune)
-        col1, col2, col3, col4, col5 = st.columns(5)
+        col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
-    with col2:
         st.metric(label='Taux de chômage', value='{} %'.format(tx_chomage_commune))
-    with col3:
+    with col2:
         st.metric(label='Taux de non diplômés', value='{} %'.format(tx_ss_diplome_commune))
-    with col4:
+    with col3:
         st.metric(label="Taux d'inactifs", value='{} %'.format(tx_inactifs_commune))
-    with col5:
+    with col4:
         st.metric(label="Taux de locataires (hab. princ.)", value='{} %'.format(tx_location_commune))
 
 
