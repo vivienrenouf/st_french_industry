@@ -53,7 +53,7 @@ tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 with tab1:
 
     with st.container():
-        st.header(select_commune)
+        st.subheader(select_commune)
         col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
