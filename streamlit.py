@@ -92,8 +92,8 @@ with tab1:
 
         folium.GeoJson(commune, name=select_commune).add_to(m)
         folium.LayerControl().add_to(m)
-        m.to_streamlit()
-        st_data = st_folium(m)
+        #m.to_streamlit()
+        st_data = st_folium(m, width=1400)
 
 #Deuxième onglet
 with tab2:
