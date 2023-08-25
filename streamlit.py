@@ -65,35 +65,35 @@ with tab1:
     with col5:
         st.metric(label="Taux de locataires (hab. princ.) à" + select_commune, value='{} %'.format(tx_location_commune))
 
-    with st.container():
-        m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
+
+    m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
 
 
-        choropleth = folium.Choropleth(
-            geo_data=geo_data_lille ,
-            name="choropleth",
-            data=lille,
-            columns=["LIBGEO", "TP6020"],
-            key_on="feature.properties.LIBGEO",
-            fill_color="OrRd",
-            nan_fill_color="white",
-            fill_opacity=1,
-            line_opacity=.5,
-            line_color="#5BA69E",
-            legend_name="Taux de pauvreté (%)",
-            popup=folium.GeoJsonPopup(fields=['LIBGEO'])
+    choropleth = folium.Choropleth(
+        geo_data=geo_data_lille ,
+        name="choropleth",
+        data=lille,
+        columns=["LIBGEO", "TP6020"],
+        key_on="feature.properties.LIBGEO",
+        fill_color="OrRd",
+        nan_fill_color="white",
+        fill_opacity=1,
+        line_opacity=.5,
+        line_color="#5BA69E",
+        legend_name="Taux de pauvreté (%)",
+        popup=folium.GeoJsonPopup(fields=['LIBGEO'])
         ).add_to(m)
 
-        choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
+    choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
 
     #Ce bloc permet de highlight le territoire choisi dans le menu dropdown
-        for i in geo_data_lille['features']:
-            if i['properties']['LIBGEO'] == select_commune:
-                commune = i
+    for i in geo_data_lille['features']:
+        if i['properties']['LIBGEO'] == select_commune:
+            commune = i
 
-        folium.GeoJson(commune, name=select_commune).add_to(m)
-        folium.LayerControl().add_to(m)
-        st_data = st_folium(m, width='100%')
+    folium.GeoJson(commune, name=select_commune).add_to(m)
+    folium.LayerControl().add_to(m)
+    st_data = st_folium(m, width='100%', height='100%')
 
 #Deuxième onglet
 with tab2:
