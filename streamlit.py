@@ -52,7 +52,7 @@ tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 with tab1:
 
     with st.container():
-        st.header(select_commune)
+        st.markdown("<h1 style='text-align: center'>select_commune title</h1>", unsafe_allow_html=True)
         col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         st.metric(label='Taux de pauvreté monétaire à '+ select_commune, value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
@@ -130,4 +130,3 @@ make_map_responsive= """
 """
 st.markdown(make_map_responsive, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
