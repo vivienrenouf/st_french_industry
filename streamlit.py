@@ -70,13 +70,13 @@ with tab1:
         #st.subheader(select_commune)
         col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric(label='Taux de chômage', value='{} %'.format(tx_chomage_commune))
+        st.metric(label='Taux de chômage', value='{} %'.format(tx_chomage_commune).replace('.',','))
     with col2:
-        st.metric(label='Taux de non diplômés', value='{} %'.format(tx_ss_diplome_commune))
+        st.metric(label='Taux de non diplômés', value='{} %'.format(tx_ss_diplome_commune).replace('.',','))
     with col3:
-        st.metric(label="Taux d'inactifs", value='{} %'.format(tx_inactifs_commune))
+        st.metric(label="Taux d'inactifs", value='{} %'.format(tx_inactifs_commune).replace('.',','))
     with col4:
-        st.metric(label="Taux de locataires (hab. princ.)", value='{} %'.format(tx_location_commune))
+        st.metric(label="Taux de locataires (hab. princ.)", value='{} %'.format(tx_location_commune).replace('.',','))
 
 
     m = folium.Map(location=[50.62, 3.05], zoom_start=10, tiles="CartoDB positron")
