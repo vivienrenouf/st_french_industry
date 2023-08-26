@@ -41,7 +41,7 @@ with st.sidebar:
     with col1:
         st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
     with col2:
-        st.metric(label='Population', value='{:,}'.format(population_commune))
+        st.metric(label='Population', value='{:,}'.format(population_commune).replace(',','.'))
 
     st.write("""Le taux de pauvreté représente la part des ménages dont le revenu disponible est inférieur à 60% du niveau de vie médian national. 
     En France, ce taux est de 14,6%. Il s'agit d'un **indicateur purement monétaire**, que l'INSEE publie également au niveau communal*. \n\n Afin de 
