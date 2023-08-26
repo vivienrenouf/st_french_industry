@@ -55,7 +55,7 @@ with st.sidebar:
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
     st.divider()
-    st.caption(""" - * L'INSEE ne publie qu'une partie des données communales (secret statistique). 
+    st.caption(""" - \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
              Les autres communes ne sont pas sélectionnables et sont représentées en blanc sur les cartographies.""")
 
