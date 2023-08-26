@@ -39,7 +39,7 @@ with st.sidebar:
     with st.container():
         col1, col2 = st.columns(2)
     with col1:
-        st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune), delta='{} %'.format(delta_moyenne), delta_color="inverse")
+        st.metric(label='Taux de pauvreté monétaire', value='{} %'.format(tx_pauvrete_commune).replace('.',','), delta='{} %'.format(delta_moyenne).replace('.',','), delta_color="inverse")
     with col2:
         st.metric(label='Population', value='{:,}'.format(population_commune).replace(',','.'))
 
