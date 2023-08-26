@@ -60,8 +60,8 @@ with st.sidebar:
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
     inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
-    prediction = np.round(model.predict(inputs), 1)
-    st.success('Prédiction : {}'.format(prediction))
+    prediction = model.predict(inputs)
+    st.success('Prédiction : {} %'.format(prediction[0]))
 
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
