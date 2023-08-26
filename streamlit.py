@@ -71,7 +71,7 @@ with st.sidebar:
 
 st.title("Analyse de la pauvreté à " + select_commune)
 
-tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
+tab1, tab2 = st.tabs(['Cartographie', 'TBD'])
 
 #Premier onglet
 with tab1:
