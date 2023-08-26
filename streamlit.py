@@ -4,7 +4,6 @@ from streamlit_folium import st_folium
 import pandas as pd
 import json
 import pickle
-import sklearn
 import numpy
 
 st.set_page_config(layout="wide")
