@@ -59,7 +59,7 @@ with st.sidebar:
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
              Les autres communes ne sont pas sélectionnables et sont représentées en blanc sur les cartographies.""")
 
-st.title("Analyse de la pauvreté de " + select_commune)
+st.title("Analyse de la pauvreté - " + select_commune)
 
 tab1, tab2 = st.tabs(['Réél', 'Prédiction'])
 
