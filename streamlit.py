@@ -4,6 +4,8 @@ from streamlit_folium import st_folium
 import pandas as pd
 import json
 import pickle
+import sklearn
+import numpy
 
 st.set_page_config(layout="wide")
 
@@ -13,7 +15,7 @@ geo_data_lille = json.load(open('lille_folium.geojson'))
 
 pickle_filename = "pauvrete_model.pkl"
 with open(pickle_filename, 'rb') as file:
-    pickle_model = pickle.load(file)
+    model = pickle.load(file)
 
 
 
@@ -111,6 +113,9 @@ with tab1:
     folium.GeoJson(commune, name=select_commune, style_function=lambda x : {'fillOpacity':.0}).add_to(m)
     folium.LayerControl().add_to(m)
     st_data = st_folium(m, width='100%')
+
+    prediction = model.predict(np.array([[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]])).astype(np.float64)
+    st.write('Prédiction', prediction)
 
 #Deuxième onglet
 with tab2:
