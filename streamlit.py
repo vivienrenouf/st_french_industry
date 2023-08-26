@@ -113,8 +113,10 @@ with tab1:
     folium.LayerControl().add_to(m)
     st_data = st_folium(m, width='100%')
 
-    prediction = model.predict(np.array([[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]])).astype(np.float64)
-    st.write('Prédiction', prediction)
+    inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
+    prediction = model.predict(inputs)
+    st.success('Prédiction : {}'.format(prediction))
+
 
 #Deuxième onglet
 with tab2:
