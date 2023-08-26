@@ -97,7 +97,7 @@ with tab1:
         popup=folium.GeoJsonPopup(fields=['LIBGEO'])
         ).add_to(m)
 
-    choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO', 'TP6020'], labels=False, localize=True))
+    choropleth.geojson.add_child(folium.features.GeoJsonPopup(fields=['LIBGEO'], labels=False, localize=True))
 
     #Ce bloc permet de highlight le territoire choisi dans le menu dropdown
     for i in geo_data_lille['features']:
