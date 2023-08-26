@@ -3,6 +3,7 @@ import folium
 from streamlit_folium import st_folium
 import pandas as pd
 import json
+import pickle
 
 st.set_page_config(layout="wide")
 
@@ -10,6 +11,9 @@ lille = pd.read_csv('lille_all_data.csv')
 communes = lille[lille.TP6020.isna() == False].sort_values(by='TP6020', ascending=False)[['LIBGEO']]
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
+pickle_filename = "pauvrete_model.pkl"
+with open(pickle_filename, 'rb') as file:
+    pickle_model = pickle.load(file)
 
 
 
