@@ -59,6 +59,10 @@ with st.sidebar:
     tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
 
+    inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
+    prediction = np.round(model.predict(inputs), 1)
+    st.success('Prédiction : {}'.format(prediction))
+
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
@@ -113,9 +117,7 @@ with tab1:
     folium.LayerControl().add_to(m)
     st_data = st_folium(m, width='100%')
 
-    inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
-    prediction = model.predict(inputs)
-    st.success('Prédiction : {}'.format(prediction))
+
 
 
 #Deuxième onglet
