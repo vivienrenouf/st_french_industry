@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 import json
 import pickle
-import numpy
+import numpy as np
 
 st.set_page_config(layout="wide")
 
@@ -61,7 +61,8 @@ with st.sidebar:
 
     inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
     prediction = model.predict(inputs)
-    st.success('Prédiction : {} %'.format(prediction[0]))
+    rounded_prediction = np.round(prediction[0], 1)
+    st.success('Prédiction : {} %'.format(rounded_prediction))
 
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
