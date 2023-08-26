@@ -5,7 +5,6 @@ import pandas as pd
 import json
 import pickle
 import numpy
-import sklearn
 
 st.set_page_config(layout="wide")
 
