@@ -61,7 +61,7 @@ with st.sidebar:
     prediction = model.predict(inputs)
     rounded_prediction = np.round(prediction[0], 1)
     st.success('Prédiction : {} %'.format(rounded_prediction))
-    st.metric(label=green['Prédiction'], value='{} %'.format(rounded_prediction))
+    st.metric(label=:green['Prédiction'], value='{} %'.format(rounded_prediction))
 
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
