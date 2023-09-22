@@ -173,3 +173,11 @@ st.markdown(
     div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p {font-size: 20px;}
            </style>""", unsafe_allow_html=True)
 
+
+css_slider_num = '''
+[data-testid="stThumbValue"] {
+font-size: 20px;
+}
+'''
+
+st.markdown(f'<style>{css_slider_num}</style>',unsafe_allow_html=True)
