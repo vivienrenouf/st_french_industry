@@ -134,7 +134,7 @@ with tab2:
     """)
 
 
-#Le code CSS ci-dessous centre les st.metric
+#Dans cette partie, on force la modification du css pour modifier les standards graphiques de Streamlit
 css_metrics='''
 [data-testid="metric-container"] {
     width: fit-content;
@@ -205,3 +205,10 @@ font-size: 18px;
 '''
 st.markdown(f'<style>{css_tab_title}</style>',unsafe_allow_html=True)
 
+css_sbox_text = '''
+div[class="row-widget stSelectbox"] > label > div[data-testid="stMarkdownContainer"] > p {
+font-size: 18px;
+}
+
+'''
+st.markdown(f'<style>{css_sbox_text}</style>',unsafe_allow_html=True)
