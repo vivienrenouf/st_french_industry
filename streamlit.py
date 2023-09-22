@@ -9,7 +9,7 @@ import numpy as np
 st.set_page_config(layout="wide")
 
 lille = pd.read_csv('lille_all_data.csv')
-communes = lille[lille.TP6020.isna() == False].sort_values(by='LIBGEO', ascending=True)[['LIBGEO']]
+communes = lille[lille.TP6020.isna() == False].sort_values(by='LIBGEO', ascending=True)[['LIBGEO']] #Tri des communes par ordre alphabétique pour la sélection
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
 pickle_filename = "pauvrete_model.pkl"
