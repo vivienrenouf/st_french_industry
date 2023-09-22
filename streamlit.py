@@ -61,7 +61,7 @@ with st.sidebar:
     inputs = [[tx_chomage, tx_ss_diplome, tx_location, tx_inactifs]]
     prediction = model.predict(inputs)
     rounded_prediction = np.round(prediction[0], 1)
-    st.success('Prédiction : {} %'.format(rounded_prediction))
+    #st.success('Prédiction : {} %'.format(rounded_prediction))
     st.metric(label='Prédiction', value='{} %'.format(rounded_prediction))
 
     st.divider()
