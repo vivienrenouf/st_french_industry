@@ -120,7 +120,8 @@ with tab1:
     st_data = st_folium(m, width='100%')
 
 
-    st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF""")
+    st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF \n
+               Projet cursus Data Analyst 2023 - Datascientest""")
 
 #Deuxième onglet
 with tab2:
