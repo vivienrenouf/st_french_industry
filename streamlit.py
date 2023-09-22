@@ -176,7 +176,7 @@ st.markdown(
 
 css_slider_num = '''
 [data-testid="stThumbValue"] {
-font-size: 20px;
+font-size: 16px;
 }
 '''
 
