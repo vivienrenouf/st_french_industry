@@ -198,7 +198,7 @@ st.markdown(f'<style>{css_metric_title}</style>',unsafe_allow_html=True)
 
 
 css_tab_title = '''
-div[class="css-16idsys e1nzilvr5"] > p {
+div[data-baseweb="tab-list"] > button > div[class="css-16idsys e1nzilvr5"] > p {
 font-size: 18px;
 }
 
