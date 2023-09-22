@@ -168,11 +168,14 @@ make_map_responsive= """
 """
 st.markdown(make_map_responsive, unsafe_allow_html=True)
 
-st.markdown(
-        """<style>
-    div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p {font-size: 20px;}
-           </style>""", unsafe_allow_html=True)
 
+css_slider_text = '''
+[data-testid="stMarkdownContainer"] {
+font-size: 18px;
+}
+'''
+
+st.markdown(f'<style>{css_slider_text}</style>',unsafe_allow_html=True)
 
 css_slider_num = '''
 [data-testid="stThumbValue"] {
