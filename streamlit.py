@@ -170,9 +170,6 @@ st.markdown(make_map_responsive, unsafe_allow_html=True)
 
 st.markdown(
         """<style>
-    div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p {
-        font-size: 20px;
-    }
-        </style>
-        """, unsafe_allow_html=True)
+    div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p {font-size: 20px;}
+           </style>""", unsafe_allow_html=True)
 
