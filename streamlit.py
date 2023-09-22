@@ -185,3 +185,12 @@ font-size: 16px;
 '''
 
 st.markdown(f'<style>{css_slider_num}</style>',unsafe_allow_html=True)
+
+css_metric_title = '''
+div[data-testid="metric-container"] > label > div[class="css-1wivap2 e1i5pmia3"] > div[data-testid="stMarkdownContainer"] > p {
+font-size: 18px;
+}
+
+'''
+
+st.markdown(f'<style>{css_metric_title}</style>',unsafe_allow_html=True)
