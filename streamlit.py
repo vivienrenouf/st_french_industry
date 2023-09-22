@@ -62,6 +62,7 @@ with st.sidebar:
     prediction = model.predict(inputs)
     rounded_prediction = np.round(prediction[0], 1)
     #st.success('Prédiction : {} %'.format(rounded_prediction))
+    result_box = st.container()
     st.metric(label='Prédiction', value='{} %'.format(rounded_prediction))
 
     st.divider()
