@@ -50,7 +50,7 @@ with st.sidebar:
     with col2:
         st.metric(label='Population', value='{:,}'.format(population_commune).replace(',','.'))
 
-    instructions = '<p style="font-size: 18px;">Ajustez les jauges et observez la prédiction !</p>'
+    instructions = '<p style="font-size: 18px;"><strong>Ajustez les jauges et observez la prédiction !</strong></p>'
     st.markdown(instructions, unsafe_allow_html=True)
 
     tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
