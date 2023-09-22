@@ -212,3 +212,12 @@ font-size: 18px;
 
 '''
 st.markdown(f'<style>{css_sbox_text}</style>',unsafe_allow_html=True)
+
+
+css_write_text = '''
+div[class="element-container css-da33e2 e1f1d6gn2"] > div[class="stMarkdown"] > div['class="css-5rimss e1nzilvr5"] > p {
+font-size: 18px;
+}
+'''
+
+st.markdown(f'<style>{css_write_text}</style>',unsafe_allow_html=True)
