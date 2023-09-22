@@ -29,7 +29,7 @@ with st.sidebar:
     #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
     tx_pauvrete_france = 14.6
-    delta_moyenne = tx_pauvrete_commune - tx_pauvrete_france
+    delta_moyenne = np.round(tx_pauvrete_commune - tx_pauvrete_france,1)
 
     population_commune = int(lille.loc[lille['LIBGEO'] == select_commune, 'pop_tot'].values[0])
 
