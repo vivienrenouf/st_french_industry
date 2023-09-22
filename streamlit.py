@@ -68,7 +68,7 @@ with st.sidebar:
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
              Les autres communes ne sont pas sélectionnables et sont représentées en blanc sur les cartographies.""")
     
-    st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF""")
+    
 
 st.title("Analyse de la pauvreté à " + select_commune)
 
@@ -120,7 +120,7 @@ with tab1:
     st_data = st_folium(m, width='100%')
 
 
-
+    st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF""")
 
 #Deuxième onglet
 with tab2:
