@@ -9,7 +9,7 @@ import numpy as np
 st.set_page_config(layout="wide")
 
 lille = pd.read_csv('lille_all_data.csv')
-communes = lille[lille.TP6020.isna() == False].sort_values(by='LIBGEO', ascending=True)[['LIBGEO']] #Tri des communes par ordre alphabétique pour la sélection
+communes = lille[lille.TP6020.isna() == False].sort_values(by='LIBGEO', ascending=True)[['LIBGEO']].reset_index(drop=True) #Tri des communes par ordre alphabétique pour la sélection
 geo_data_lille = json.load(open('lille_folium.geojson'))
 
 pickle_filename = "pauvrete_model.pkl"
@@ -24,7 +24,7 @@ with open(pickle_filename, 'rb') as file:
 
 with st.sidebar:
     st.sidebar.title("Instructions")
-    select_commune = st.selectbox("Sélectionnez une commune de l'aire d'attraction de Lille", (communes),  index=2)
+    select_commune = st.selectbox("Sélectionnez une commune de l'aire d'attraction de Lille", (communes),  index=43) #l'index 43 correspond à la commune de Lille. Affichage par défaut.
 
     #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
     tx_pauvrete_commune = lille.loc[lille['LIBGEO'] == select_commune, 'TP6020'].values[0]
