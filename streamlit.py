@@ -50,7 +50,7 @@ with st.sidebar:
     with col2:
         st.metric(label='Population', value='{:,}'.format(population_commune).replace(',','.'))
 
-    instructions = '<p style="font-size: 18px;">instructions</p>'
+    instructions = '<p style="font-size: 18px;">Ajustez les jauges et observez la prédiction !</p>'
     st.markdown(instructions, unsafe_allow_html=True)
     st.write('Ajustez les jauges et observez la prédiction !')
 
