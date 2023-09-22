@@ -52,7 +52,6 @@ with st.sidebar:
 
     instructions = '<p style="font-size: 18px;">Ajustez les jauges et observez la prédiction !</p>'
     st.markdown(instructions, unsafe_allow_html=True)
-    st.write('Ajustez les jauges et observez la prédiction !')
 
     tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
     tx_ss_diplome = st.slider('Taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
