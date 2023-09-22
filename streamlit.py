@@ -67,6 +67,8 @@ with st.sidebar:
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
              Les autres communes ne sont pas sélectionnables et sont représentées en blanc sur les cartographies.""")
+    
+    st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF""")
 
 st.title("Analyse de la pauvreté à " + select_commune)
 
