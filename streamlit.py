@@ -24,6 +24,9 @@ with open(pickle_filename, 'rb') as file:
 
 with st.sidebar:
     st.sidebar.title("Paramètres")
+
+
+    st.write("Sélectionnez une commune de l'aire d'attraction de Lille")
     select_commune = st.selectbox("Sélectionnez une commune de l'aire d'attraction de Lille", (communes),  index=43) #l'index 43 correspond à la commune de Lille. Affichage par défaut.
 
     #Pour fonctionner correctement en fonction du dropdown menu, et même si les indicateurs ne sont pas dans le sidebar, ces variables doivent être stockées directement après le select_commune et en amont des jauges.
