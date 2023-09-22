@@ -171,7 +171,7 @@ st.markdown(make_map_responsive, unsafe_allow_html=True)
 
 css_slider_text = '''
 div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p{
-font-size: 20px;
+font-size: 18px;
 }
 '''
 
