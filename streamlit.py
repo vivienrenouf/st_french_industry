@@ -119,16 +119,7 @@ with tab1:
     folium.LayerControl().add_to(m)
     st_data = st_folium(m, width='100%')
 
-    """
-    def get_commune(LIBGEO):
-        return LIBGEO
 
-    commune_active_map = commune
-    if m.get("last_clicked"):
-        commune_active_map = get_pos(m["last_clicked"]["LIBGEO"])
-        commune = commune_active_map
-    """
-    
     st.caption(""" Crédits : Frédérique RAOUX - Marie-Hélène IZQUIERDO - Dominique MOLL - Vivien RENOUF / Projet cursus Data Analyst 2023 - Datascientest""")
 
 #Deuxième onglet
