@@ -48,13 +48,13 @@ with st.sidebar:
     instructions = '<p style="font-size: 18px;"><strong>Ajustez les jauges et observez la prédiction !</strong></p>'
     st.markdown(instructions, unsafe_allow_html=True)
 
+    def reset_session():
+        st.session_state['tx_chomage_commune'] = tx_chomage_commune
+        st.session_state['tx_ss_diplome_commune'] = tx_ss_diplome_commune
+        st.session_state['tx_inactifs_commune'] = tx_inactifs_commune
+        st.session_state['tx_location_commune'] = tx_location_commune
 
-    st.session_state['tx_chomage_commune'] = tx_chomage_commune
-    st.session_state['tx_ss_diplome_commune'] = tx_ss_diplome_commune
-    st.session_state['tx_inactifs_commune'] = tx_inactifs_commune
-    st.session_state['tx_location_commune'] = tx_location_commune
-
-    tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, st.session_state['tx_chomage_commune'], step=0.1, format="%f")
+    tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
     tx_ss_diplome = st.slider('Taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
     tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
@@ -67,6 +67,8 @@ with st.sidebar:
     #st.success('Prédiction : {} %'.format(rounded_prediction))
     result_box = st.container()
     st.metric(label='Prédiction', value='{} %'.format(rounded_prediction))
+
+    st.button('Reset', type='primary', on_click=reset_session)
 
 
     st.divider()
