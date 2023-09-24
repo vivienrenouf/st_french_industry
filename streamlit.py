@@ -61,6 +61,13 @@ with st.sidebar:
     result_box = st.container()
     st.metric(label='Prédiction', value='{} %'.format(rounded_prediction))
 
+    reset = st.button('Reset', type='primary')
+    if reset:
+        tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
+        tx_ss_diplome = st.slider('Taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
+        tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
+        tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")  
+
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
              Cet outil ne tient compte que des communes pour lesquelles les données sont publiées. 
