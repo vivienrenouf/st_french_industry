@@ -63,7 +63,10 @@ with st.sidebar:
 
     reset = st.button('Reset', type='primary')
     if reset:
-        st.write('reset')
+        tx_chomage_commune = lille.loc[lille['LIBGEO'] == select_commune, 'Taux_chomage'].values[0]
+        tx_ss_diplome_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_sans_diplome'].values[0]
+        tx_inactifs_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_inactifs'].values[0]
+        tx_location_commune = lille.loc[lille['LIBGEO'] == select_commune, 'taux_loc_princ'].values[0]
 
     st.divider()
     st.caption(""" \* L'INSEE ne publie qu'une partie des données communales (secret statistique). 
