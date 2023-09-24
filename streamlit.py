@@ -48,6 +48,9 @@ with st.sidebar:
     instructions = '<p style="font-size: 18px;"><strong>Ajustez les jauges et observez la prédiction !</strong></p>'
     st.markdown(instructions, unsafe_allow_html=True)
 
+    if tx_chomage_commune not in st.session_state:
+        st.session_state['tx_chomage_commune'] = tx_chomage_commune
+
     def reset_session():
         st.session_state['tx_chomage_commune'] = tx_chomage_commune
         st.session_state['tx_ss_diplome_commune'] = tx_ss_diplome_commune
