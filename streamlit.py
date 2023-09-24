@@ -54,7 +54,7 @@ with st.sidebar:
     st.session_state['tx_inactifs_commune'] = tx_inactifs_commune
     st.session_state['tx_location_commune'] = tx_location_commune
 
-    tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, tx_chomage_commune, step=0.1, format="%f")
+    tx_chomage = st.slider('Taux de chômage', 0.0, 100.0, st.session_state['tx_chomage_commune'], step=0.1, format="%f")
     tx_ss_diplome = st.slider('Taux de non diplômés', 0.0, 100.0, tx_ss_diplome_commune, step=0.1, format="%f")
     tx_inactifs = st.slider("Taux d'inactifs", 0.0, 100.0, tx_inactifs_commune, step=0.1, format="%f")
     tx_location = st.slider('Taux de locataires (hab. princ.)', 0.0, 100.0, tx_location_commune, step=0.1, format="%f")
